@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300&family=Open+Sans&family=Quicksand:wght@300&family=Roboto:wght@400;500&family=Source+Code+Pro:ital,wght@1,200&family=Ubuntu:wght@300&display=swap');
+
+.App {
+  font-family: 'Montserrat', sans-serif;
+  height: 100vh;
+  background-image:url('./assets/assests/images/bg.jpg') ;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow: auto;
+}
+::-webkit-scrollbar {
+  display: none;
+}
