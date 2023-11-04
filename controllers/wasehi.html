@@ -1,0 +1,99 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>File Upload</title>
+</head>
+<body>
+    <h1>File Upload</h1>
+    <form id="fileUploadForm" enctype="multipart/form-data">
+        <input type="file" name="file" id="fileInput"> 
+        <button type="button" onclick="uploadFile()">Upload</button>
+    </form>
+    
+    <script>
+        function uploadFile() { // Change the function name
+            const fileInput = document.getElementById('fileInput');
+            const file = fileInput.files[0]; // Get the first selected file
+            
+            if (!file) { // Check if a file is selected
+                alert('Please select a file to upload.');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('file', file); // Change the form field name to "file"
+
+            fetch('http://localhost:8000/project/addthumbnail/652960bebf5ae8c420e22985', {
+                method: 'POST',
+                headers: {
+                    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MDUzMDkzZDIwNWFjZTFiYzNhNjQ5MCIsImlhdCI6MTY5NTAxOTE0M30.yAlHUloxz6jBvawjYE03HY357arEXMls-Xxu_dkBdEg"
+                },
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('File uploaded successfully.');
+                } else {
+                    alert('File upload failed.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>File Upload</title>
+</head>
+<body>
+    <h1>File Upload</h1>
+    <form id="fileUploadForm" enctype="multipart/form-data">
+        <input type="file" name="file" id="fileInput" multiple>
+        <button type="button" onclick="uploadFiles()">Upload</button>
+    </form>
+    
+    <script>
+        function uploadFiles() {
+            const fileInput = document.getElementById('fileInput');
+            const files = fileInput.files;
+
+            if (files.length === 0) {
+                alert('Please select one or more files to upload.');
+                return;
+            }
+
+            const formData = new FormData();
+
+            for (let i = 0; i < files.length; i++) {
+                formData.append('files', files[i]);
+            }
+
+            fetch('http://localhost:8000/project/addfiles/652960bebf5ae8c420e22985', {
+                method: 'POST',
+                headers: {
+                    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MDUzMDkzZDIwNWFjZTFiYzNhNjQ5MCIsImlhdCI6MTY5NTAxOTE0M30.yAlHUloxz6jBvawjYE03HY357arEXMls-Xxu_dkBdEg"
+                },
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Files uploaded successfully.');
+                } else {
+                    alert('File upload failed.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+</body>
+</html>

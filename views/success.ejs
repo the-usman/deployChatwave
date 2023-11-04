@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Success</title>
+    <style>
+        
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+}
+
+p {
+    color: #666;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Success!</h1>
+        <p>Token has been confirmed successfully.</p>
+        <button id="pushToDashboardButton" data-token="<%= token %>">Push to Dashboard</button>
+    </div>
+    
+    <script>
+        const token = document.getElementById('pushToDashboardButton').getAttribute('data-token');
+        
+        
+        localStorage.setItem('token', token);
+        
+        
+        document.getElementById('pushToDashboardButton').addEventListener('click', function() {
+            
+            window.location.href = '/dashboard';
+        });
+    </script>
+</body>
+</html>
