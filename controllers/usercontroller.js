@@ -95,7 +95,7 @@ const CreateAccount = async (req, res) => {
             }
         });
 
-        const confirmationLink = `http://localhost:8000/user/confirm/${confirmationToken}`;
+        const confirmationLink = `https://shave-hive-backend.vercel.app/user/confirm/${confirmationToken}`;
         const mailOptions = {
             from: 'noreply@example.com',
             to: email,
