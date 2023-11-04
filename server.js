@@ -19,6 +19,9 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 const port = process.env.PORT || 8000
+app.get('/', (req, res)=>{
+    res.send("This is app")
+})
 
 app.use('/user', userRoute)
 app.use('/bond', bondRouter)
